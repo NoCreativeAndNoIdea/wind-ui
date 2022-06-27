@@ -1,0 +1,7 @@
+@use '../mixins/config' as *;
+@use '../mixins/mixins' as *;
+
+.fade-in-linear-enter-active,
+.fade-in-linear-leave-active {
+  transition: getCssVar('transition-fade', 'linear');
+}

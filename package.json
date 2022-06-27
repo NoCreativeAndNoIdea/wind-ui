@@ -1,0 +1,122 @@
+{
+  "name": "@no_idea/wind-components-monorepo",
+  "version": "0.0.1",
+  "private": true,
+  "description": "component monorepo",
+  "keywords": [
+    "vue",
+    "component",
+    "typescript"
+  ],
+  "license": "ISC",
+  "author": "jixiaoqi",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
+    "clean:dist": "rimraf dist",
+    "dev": "pnpm run -C playground dev",
+    "gen": "bash ./scripts/gc.sh",
+    "build": "pnpm run -C internal start",
+    "build:theme": "pnpm run -C packages/theme-chalk build",
+    "format": "prettier --write .",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 && pretty-quick --check --branch dev",
+    "lint:fix": "eslint --fix . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json && pretty-quick --branch dev",
+    "lint:commit": "commitlint --from $(git merge-base origin/dev HEAD) --to HEAD > ./commit-lint.txt",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
+    "prepare": "husky install"
+  },
+  "workspaces": [
+    "packages/*",
+    "playground",
+    "docs",
+    "internal"
+  ],
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "dependencies": {
+    "@ctrl/tinycolor": "^3.4.1",
+    "@element-plus/icons-vue": "^2.0.6",
+    "@no_idea/wind-ui": "workspace:^*",
+    "@wind-ui/constants": "workspace:^*",
+    "@wind-ui/hooks": "workspace:^*",
+    "@wind-ui/internal": "workspace:^*",
+    "@wind-ui/theme-chalk": "workspace:^*",
+    "@wind-ui/tokens": "workspace:^*",
+    "@wind-ui/utils": "workspace:^*"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "@esbuild-kit/cjs-loader": "^2.2.0",
+    "@no_idea/eslint-config-vue": "^0.1.0",
+    "@pnpm/find-workspace-packages": "^4.0.13",
+    "@pnpm/logger": "^4.0.0",
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@types/fs-extra": "^9.0.13",
+    "@types/gulp": "^4.0.9",
+    "@types/gulp-autoprefixer": "^0.0.33",
+    "@types/gulp-clean-css": "^4.3.0",
+    "@types/gulp-rename": "^2.0.1",
+    "@types/gulp-sass": "^5.0.0",
+    "@types/jsdom": "^16.2.14",
+    "@types/node": "^17.0.45",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vitejs/plugin-vue-jsx": "^1.3.10",
+    "@vitest/ui": "^0.14.2",
+    "@vue/test-utils": "^2.0.1",
+    "@wind-ui/components": "workspace:^0.0.1",
+    "autoprefixer": "^10.4.7",
+    "chalk": "^5.0.1",
+    "consola": "^2.15.3",
+    "csstype": "^3.1.0",
+    "esbuild": "^0.14.47",
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-markdown": "^2.2.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "fast-glob": "^3.2.11",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "husky": "^8.0.1",
+    "jsdom": "^19.0.0",
+    "lint-staged": "^13.0.2",
+    "postcss": "^8.4.14",
+    "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3",
+    "rimraf": "^3.0.2",
+    "rollup-plugin-esbuild": "^4.9.1",
+    "sass": "^1.52.3",
+    "ts-morph": "^15.1.0",
+    "typescript": "^4.7.4",
+    "undertaker": "^1.3.0",
+    "unplugin": "^0.7.0",
+    "unplugin-vue-components": "^0.19.6",
+    "unplugin-vue-define-options": "^0.6.1",
+    "vite": "^2.9.12",
+    "vitepress": "^1.0.0-alpha.4",
+    "vitest": "^0.14.2",
+    "vue": "^3.2.37",
+    "vue-tsc": "^0.37.9"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMission": [
+        "react",
+        "react-dom",
+        "vite"
+      ]
+    }
+  },
+  "lint-staged": {
+    "*.{vue,js,ts,jsx,tsx,md,json}": "eslint --fix"
+  }
+}

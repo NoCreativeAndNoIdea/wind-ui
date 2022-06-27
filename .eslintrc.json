@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "@no_idea/eslint-config-vue",
+    "plugin:markdown/recommended",
+    "prettier"
+  ],
+  "plugins": ["prettier"],
+  "overrides": [
+    {
+      "files": ["**/__tests__/**"],
+      "rules": {
+        "no-console": "off",
+        "vue/one-component-per-file": "off"
+      }
+    }
+  ],
+  "rules": {
+    "implicit-arrow-linebreak": "off",
+    "max-len": "off",
+    "prettier/prettier": "error",
+    "max-params": "off"
+  }
+}
