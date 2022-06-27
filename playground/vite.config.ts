@@ -42,7 +42,7 @@ export default () =>
       esbuildPlugin(),
       DefineOptions(),
       Components({
-        dts: false,
+        dts: '../global.d.ts',
         resolvers: [
           (componentName: string) => {
             if (componentName.startsWith('D'))
