@@ -61,12 +61,13 @@ const handleScroll = () => {
   }
 }
 
-function scrollTo(xCord: number, yCord?: number): void
-function scrollTo(options: ScrollToOptions): void
-function scrollTo(arg: unknown, arg1?: unknown) {
+function scrollTo(
+  arg: ScrollToOptions | number,
+  arg1?: unknown | number
+): void {
   if (isObject(arg)) {
     wrap$.value!.scrollTo(arg)
-  } else if (isNumber(arg1) && isNumber(arg1)) {
+  } else if (isNumber(arg) && isNumber(arg1)) {
     wrap$.value!.scrollTo(arg1, arg1)
   }
 }
