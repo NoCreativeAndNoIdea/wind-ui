@@ -9,6 +9,7 @@ import { rollup } from 'rollup'
 import esbuild, { minify as minifyPlugin } from 'rollup-plugin-esbuild'
 import DefineOptions from 'unplugin-vue-define-options/vite'
 import { target } from '../build-info'
+import { WindUiAlias } from '../plugins/wind-ui-alias'
 import {
   formatBundleFilename,
   generateExternal,
@@ -22,6 +23,7 @@ const banner = `/*! Wind Ui v0.0.1 */\n`
 
 async function buildFullEntry(minify: boolean) {
   const plugins: Plugin[] = [
+    WindUiAlias(),
     DefineOptions(),
     Vue({
       isProduction: true,

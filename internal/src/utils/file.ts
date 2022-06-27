@@ -46,7 +46,8 @@ export const pathRewriter = (module: Module) => {
   const config = buildConfig[module]
 
   return (id: string) => {
-    id = id.replaceAll(`@no_idea/`, `${config.bundle.path}/`)
+    id = id.replaceAll(`@wind-ui/theme-chalk`, `@no_idea/wind-ui/theme-chalk`)
+    id = id.replaceAll(`@wind-ui/`, `@no_idea/${config.bundle.path}/`)
     return id
   }
 }
