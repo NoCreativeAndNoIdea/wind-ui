@@ -18,6 +18,8 @@
     "implicit-arrow-linebreak": "off",
     "max-len": "off",
     "prettier/prettier": "error",
-    "max-params": "off"
+    "max-params": "off",
+    "no-await-in-loop": "off",
+    "max-lines": "off"
   }
 }

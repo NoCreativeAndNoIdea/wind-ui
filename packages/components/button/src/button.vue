@@ -4,6 +4,7 @@ import { buttonGroupContextKey } from '@wind-ui/tokens'
 
 import {
   useDisabled,
+  useFormItem,
   useGlobalConfig,
   useNamespace,
   useSize,
@@ -19,6 +20,7 @@ defineOptions({
 const props = defineProps(buttonProps)
 const emit = defineEmits(buttonEmits)
 const slots = useSlots()
+const { form } = useFormItem()
 
 const buttonGroupContext = inject(buttonGroupContextKey, undefined)
 const globalConfig = useGlobalConfig('button')
@@ -47,6 +49,9 @@ const shouldAddSpace = computed(() => {
 const buttonStyle = useButtonCustomStyle(props)
 
 const handleClick = (evt: MouseEvent) => {
+  if (props.nativeType === 'reset') {
+    form?.resetFields()
+  }
   emit('on-click', evt)
 }
 

@@ -42,12 +42,18 @@
     "@ctrl/tinycolor": "^3.4.1",
     "@element-plus/icons-vue": "^2.0.6",
     "@no_idea/wind-ui": "workspace:^*",
+    "@types/lodash": "^4.14.182",
+    "@types/lodash-es": "^4.17.6",
     "@wind-ui/constants": "workspace:^*",
     "@wind-ui/hooks": "workspace:^*",
     "@wind-ui/internal": "workspace:^*",
     "@wind-ui/theme-chalk": "workspace:^*",
     "@wind-ui/tokens": "workspace:^*",
-    "@wind-ui/utils": "workspace:^*"
+    "@wind-ui/utils": "workspace:^*",
+    "async-validator": "^4.2.5",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "lodash-unified": "^1.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",

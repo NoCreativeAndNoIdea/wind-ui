@@ -17,6 +17,9 @@ export const judgeType = <T>(val: unknown, type: string): val is T =>
 export const isNumber = (val: unknown): val is number =>
   judgeType<number>(val, 'Number')
 
+export const isBoolean = (val: unknown): val is boolean =>
+  judgeType<boolean>(val, 'Boolean')
+
 export const isUndefined = (val: any): val is undefined => val === undefined
 
 export const isEmpty = (val: unknown) =>
@@ -31,3 +34,6 @@ export const isElement = (e: unknown): e is Element => {
 
 export const isPropAbsent = (prop: unknown): prop is null | undefined =>
   prop === null
+
+export const isKorean = (text: string) =>
+  /([(\uAC00-\uD7AF)|(\u3130-\u318F)])+/gi.test(text)
