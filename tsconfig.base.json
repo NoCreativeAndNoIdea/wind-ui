@@ -17,6 +17,7 @@
     "types": [],
     "paths": {
       "@wind-ui/*": ["packages/*"]
-    }
+    },
+    "jsx": "react"
   }
 }

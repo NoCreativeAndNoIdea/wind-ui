@@ -1,4 +1,9 @@
-import type { AppContext, ComponentPublicInstance, Plugin } from 'vue'
+import type {
+  AppContext,
+  ComponentPublicInstance,
+  ComputedRef,
+  Plugin,
+} from 'vue'
 import { unref } from 'vue'
 import type { MaybeRef } from './types'
 
@@ -9,9 +14,14 @@ export type SFCInstallWithContext<T> = SFCWithInstall<T> & {
 
 export type VueInstance = ComponentPublicInstance
 
-export type MaybeElementRef = MaybeRef<
-  HTMLElement | SVGAElement | VueInstance | undefined | null
->
+export type ElementRef =
+  | HTMLElement
+  | SVGAElement
+  | VueInstance
+  | undefined
+  | null
+
+export type MaybeElementRef = MaybeRef<ElementRef> | ComputedRef<ElementRef>
 
 export function unrefElement(
   elRef: MaybeElementRef

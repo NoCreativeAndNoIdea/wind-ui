@@ -59,8 +59,11 @@ const formItemRef = ref<HTMLDivElement>()
 
 const fieldValue = computed(() => {
   const model = formContext?.model
-  if (!model || !props.prop) return null
-  return getProp(model, props.prop).value
+  if ((!model || props.validateValue) && !props.prop) return null
+  return (
+    getProp(model ?? {}, props.prop!).value ??
+    getProp(props.validateValue ?? {}, props.prop!)
+  )
 })
 
 const _rules = computed(() => {

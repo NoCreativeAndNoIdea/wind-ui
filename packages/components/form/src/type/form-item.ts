@@ -35,6 +35,9 @@ export const formItemProps = buildProps({
     type: String,
     values: formItemValidateStates,
   },
+  validateValue: {
+    type: definePropType<Record<string, any>>(Object),
+  },
   for: String,
   inlineMessage: {
     type: [String, Boolean],

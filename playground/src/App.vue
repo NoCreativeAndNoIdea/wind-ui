@@ -1,19 +1,49 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
+import type { RuleRef } from '@wind-ui/hooks'
+import { useForm } from '@wind-ui/hooks'
+
+const rules = reactive<RuleRef>({
+  name: {
+    message: 'name length must = 10!',
+    validator: (rule, { value }) => !(value.toString().length !== 10),
+  },
+  demo: {
+    min: 5,
+    required: true,
+    message: 'demo is must input!',
+  },
+})
 
 const formModel = ref({
-  name: 'string',
+  name: '',
+  demo: '',
 })
+
+const { resetFields, validateInfos, validateField, validate } = useForm(
+  formModel,
+  rules
+)
+
+const handleSubmit = async () => {
+  // Const validate = await validateField('name')
+  // Console.log(validate, 'validate')
+  validate()
+}
 </script>
 
 <template>
   play ground:
-  <d-form :model="formModel">
-    <d-form-item required prop="name" label="demo">
+  <d-form>
+    <d-form-item label="name:" v-bind="validateInfos.name">
       <d-input v-model="formModel.name" />
     </d-form-item>
+    <d-form-item label="demo:" v-bind="validateInfos.demo">
+      <d-input v-model="formModel.demo" />
+    </d-form-item>
     <d-form-item>
-      <d-button native-type="reset"> reset </d-button>
+      <d-button type="warning" @click="resetFields"> reset </d-button>
+      <d-button type="primary" @click.prevent="handleSubmit"> submit </d-button>
     </d-form-item>
   </d-form>
 </template>

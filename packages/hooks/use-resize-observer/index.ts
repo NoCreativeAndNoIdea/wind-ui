@@ -11,7 +11,7 @@ export interface ResizeObserverSize {
 export interface ResizeObserverEntry {
   readonly target: Element
   readonly contentRect: DOMRectReadOnly
-  readonly borderboxSize?: ReadonlyArray<ResizeObserverSize>
+  readonly borderBoxSize?: ReadonlyArray<ResizeObserverSize>
   readonly contentBoxSize?: ReadonlyArray<ResizeObserverSize>
   readonly devicePixelContentBoxSize?: ReadonlyArray<ResizeObserverSize>
 }

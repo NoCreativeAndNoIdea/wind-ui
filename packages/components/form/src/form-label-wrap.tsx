@@ -78,7 +78,7 @@ export default defineComponent({
     })
 
     useResizeObserver(
-      computed(() => el.value?.firstElementChild ?? null) as HTMLElement | null,
+      computed(() => (el.value?.firstElementChild as HTMLElement) ?? null),
       updateLabelWidthFn
     )
 
