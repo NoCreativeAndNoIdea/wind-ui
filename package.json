@@ -45,6 +45,7 @@
     "@types/lodash": "^4.14.182",
     "@types/lodash-es": "^4.17.6",
     "@wind-ui/constants": "workspace:^*",
+    "@wind-ui/directives": "workspace:^*",
     "@wind-ui/hooks": "workspace:^*",
     "@wind-ui/internal": "workspace:^*",
     "@wind-ui/theme-chalk": "workspace:^*",

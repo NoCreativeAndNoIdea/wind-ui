@@ -1,23 +1,26 @@
 <script lang="ts" setup>
+import { isNumber } from '@wind-ui/utils/index'
 import { reactive, ref } from 'vue'
 import type { RuleRef } from '@wind-ui/hooks'
 import { useForm } from '@wind-ui/hooks'
 
 const rules = reactive<RuleRef>({
   name: {
-    message: 'name length must = 10!',
-    validator: (rule, { value }) => !(value.toString().length !== 10),
+    required: true,
+    message: 'name is required',
   },
   demo: {
-    min: 5,
     required: true,
-    message: 'demo is must input!',
+    validator: (rule, value) =>
+      Boolean(value && isNumber(value) && !Number.isNaN(value) && value > 10),
+    message: 'demo is number and demo must more than the 10!',
+    trigger: 'change',
   },
 })
 
 const formModel = ref({
   name: '',
-  demo: '',
+  demo: 0,
 })
 
 const { resetFields, validateInfos, validateField, validate } = useForm(
@@ -38,8 +41,8 @@ const handleSubmit = async () => {
     <d-form-item label="name:" v-bind="validateInfos.name">
       <d-input v-model="formModel.name" />
     </d-form-item>
-    <d-form-item label="demo:" v-bind="validateInfos.demo">
-      <d-input v-model="formModel.demo" />
+    <d-form-item label="number:" v-bind="validateInfos.demo">
+      <d-input-number v-model="formModel.demo" />
     </d-form-item>
     <d-form-item>
       <d-button type="warning" @click="resetFields"> reset </d-button>

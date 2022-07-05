@@ -17,6 +17,7 @@ declare module '@vue/runtime-core' {
     DFormLabel: typeof import('@no_idea/wind-ui')['DFormLabel']
     DHeader: typeof import('@no_idea/wind-ui')['DHeader']
     DInput: typeof import('@no_idea/wind-ui')['DInput']
+    DInputNumber: typeof import('@no_idea/wind-ui')['DInputNumber']
     DLink: typeof import('@no_idea/wind-ui')['DLink']
     DMain: typeof import('@no_idea/wind-ui')['DMain']
     DRow: typeof import('@no_idea/wind-ui')['DRow']
